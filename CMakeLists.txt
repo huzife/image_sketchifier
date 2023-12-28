@@ -5,17 +5,18 @@ add_compile_options(-std=c++17)
 
 find_package(OpenCV REQUIRED)
 
-include_directories(
-    include
-    ${OpenCV_INCLUDE_DIRS}
-)
-
 add_executable(sketchify
     src/image.cpp
     src/main.cpp
     src/sketchify.cpp
+    src/utils.cpp
 )
 
-target_link_libraries(sketchify
+target_include_directories(sketchify PUBLIC
+    include
+    ${OpenCV_INCLUDE_DIRS}
+)
+
+target_link_libraries(sketchify PRIVATE
     ${OpenCV_LIBS}
 )

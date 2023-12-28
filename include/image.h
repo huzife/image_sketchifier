@@ -12,7 +12,7 @@ namespace IS {
 class Image {
 public:
     Image();
-    Image(size_t width, size_t height);
+    Image(std::size_t width, std::size_t height);
     explicit Image(std::string file);
 
     Image(const Image& rhs);
@@ -21,8 +21,8 @@ public:
     Image& operator=(Image&& rhs);
 
     // member functions
-    size_t width() const;
-    size_t height() const;
+    std::size_t width() const;
+    std::size_t height() const;
 
     cv::Mat& bgr();
     const cv::Mat& bgr() const;
@@ -35,8 +35,8 @@ public:
 
 private:
     cv::Mat bgr_;
-    size_t width_;
-    size_t height_;
+    std::size_t width_;
+    std::size_t height_;
 };
 
 } // namespace IS
